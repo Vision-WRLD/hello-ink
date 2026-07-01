@@ -64,17 +64,7 @@ function Hero() {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Vision Wrld Tattoo Studio interior"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/50 to-[#0A0A0A]" />
-      </div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A0A0A] via-[#1A1A1A] to-[#0A0A0A]" />
 
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-8 w-32 h-32 rounded-full bg-[#C41E3A]/8 blur-[80px]" />
@@ -204,14 +194,11 @@ function StudioIntro() {
 
           <FadeIn delay={0.2}>
             <div className="relative">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden">
-                <Image
-                  src="/images/studio-interior.jpg"
-                  alt="Vision Wrld studio interior in Newmarket"
-                  width={600}
-                  height={750}
-                  className="object-cover w-full h-full"
-                />
+              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] flex items-center justify-center">
+                <div className="text-center p-8">
+                  <p className="text-[#D4A574] text-sm uppercase tracking-widest mb-2">Vision Wrld</p>
+                  <p className="text-[#999999] text-xs">Newmarket, Ontario</p>
+                </div>
               </div>
               <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#C41E3A]/50 rounded-tl-lg" />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#D4A574]/50 rounded-br-lg" />
@@ -243,14 +230,10 @@ function FeaturedArtists() {
           {artists.map((artist, i) => (
             <FadeIn key={artist.slug} delay={i * 0.1}>
               <Link href={`/artists/${artist.slug}`} className="group block">
-                <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
-                  <Image
-                    src={artist.image}
-                    alt={`Tattoo artist ${artist.name} at Vision Wrld Newmarket`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
+                <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] flex items-center justify-center">
+                  <div className="text-center p-4">
+                    <p className="text-[#D4A574] text-lg font-heading tracking-wider">{artist.name}</p>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="flex flex-wrap gap-2">
@@ -327,15 +310,10 @@ function InstagramFeed() {
         <div className="grid grid-cols-3 gap-2 sm:gap-4">
           {posts.map((post, i) => (
             <FadeIn key={post.id} delay={i * 0.05}>
-              <div className="aspect-square rounded-lg overflow-hidden group cursor-pointer relative">
-                <Image
-                  src={post.image}
-                  alt={`Vision Wrld tattoo work ${post.id}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 33vw, (max-width: 1024px) 33vw, 25vw"
-                  loading="lazy"
-                />
+              <div className="aspect-square rounded-lg overflow-hidden group cursor-pointer relative bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] flex items-center justify-center">
+                <div className="text-center p-4">
+                  <p className="text-[#D4A574] text-xs uppercase tracking-widest">Work {post.id}</p>
+                </div>
                 <div className="absolute inset-0 group-hover:bg-[#C41E3A]/30 transition-all duration-300 flex items-center justify-center">
                   <InstagramIcon
                     size={24}
